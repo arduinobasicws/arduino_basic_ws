@@ -1,75 +1,50 @@
-/*
-	Blink
-	LED‚ðˆê•bŠÔ“_“”AÁ“”‚ðŒJ‚è•Ô‚·B
-	‚±‚ÌƒTƒ“ƒvƒ‹ƒR[ƒh‚ÍƒpƒuƒŠƒbƒNƒhƒƒCƒ“‚Å‚·B
-*/
-
-// 13”Ôƒsƒ“‚Í‘å’ï‚Ìarduinoƒ{[ƒh‚ÅLED‚É‚Â‚È‚ª‚Á‚Ä‚¢‚éB
-// ‚±‚ê‚É–¼‘O‚ð‚Â‚¯‚éB
-int led = 13;
-
-// "setup"ƒ‹[ƒeƒBƒ“‚Íƒ{[ƒh‚Ì“dŒ¹‚ð“ü‚ê‚½‚Æ‚«‚âƒŠƒZƒbƒg‚ð‰Ÿ‚µ‚½Žž‚Éˆê“x‚¾‚¯s‚í‚ê‚éB
-void setup(){
-	//@‚»‚ÌƒfƒWƒ^ƒ‹ƒsƒ“‚ðo—Í‚ÉÝ’è‚·‚éB
-	pinMode(led,OUTPUT);
-}
-
-// "loop"ƒ‹[ƒeƒBƒ“‚ÍŒJ‚è•Ô‚µs‚í‚ê‚éB
-void loop(){
-	digitalWrite(led, HIGH);	//@LED‚ð“_“”
-	delay(1000);			//@ˆê•b‘Ò‚Â
-	digitalWrite(led, LOW);		//@“dˆ³‚ð—Ž‚Æ‚µ‚ÄLED‚ðÁ“”
-	delay(1000);			//@ˆê•b‘Ò‚Â
-}
-
-
-"//"‚Å‚Í‚¶‚ß‚é‚©"/*""*/"‚ÅˆÍ‚Ü‚ê‚½•”•ª‚ÍƒRƒƒ“ƒgsBarduino‚É‚Í–³Ž‹‚³‚ê‚éB
-u^‚ÌƒnƒbƒJ[‚ÍƒRƒƒ“ƒg‚ð‘‚­v‚»‚¤‚Å‚·B
+"//"ã§ã¯ã˜ã‚ã‚‹ã‹"/*""*/"ã§å›²ã¾ã‚ŒãŸéƒ¨åˆ†ã¯ã‚³ãƒ¡ãƒ³ãƒˆè¡Œã€‚arduinoã«ã¯ç„¡è¦–ã•ã‚Œã‚‹ã€‚
+ã€ŒçœŸã®ãƒãƒƒã‚«ãƒ¼ã¯ã‚³ãƒ¡ãƒ³ãƒˆã‚’æ›¸ãã€ãã†ã§ã™ã€‚
 	int led = 13;
-"led"‚Æ‚¢‚¤–¼‚Ì®”Œ^‚Ì•Ï”‚ðì‚èA‚»‚ê‚É13‚ð‘ã“ü‚·‚éB
-";"‚Ís‚ÌI‚í‚è‚ðŽ¦‚·B–Y‚ê‚¸‚É“ü‚ê‚é‚±‚ÆII“ü‚ê–Y‚ê‚½‚è":"‚ÆŠÔˆá‚¦‚éƒGƒ‰[‚Í‚Æ‚Ä‚à‘½‚¢‚Å‚·B
-int led=13;@‚Ì‚æ‚¤‚ÉƒXƒy[ƒX‚ð“ü‚ê‚È‚­‚Ä‚à‚æ‚¢(ƒXƒy[ƒX‚Í–³Ž‹‚³‚ê‚é)‚ªA“ü‚ê‚½‚Ù‚¤‚ªŒ©‚â‚·‚¢B
+"led"ã¨ã„ã†åã®æ•´æ•°åž‹ã®å¤‰æ•°ã‚’ä½œã‚Šã€ãã‚Œã«13ã‚’ä»£å…¥ã™ã‚‹ã€‚
+";"ã¯è¡Œã®çµ‚ã‚ã‚Šã‚’ç¤ºã™ã€‚å¿˜ã‚Œãšã«å…¥ã‚Œã‚‹ã“ã¨ï¼ï¼å…¥ã‚Œå¿˜ã‚ŒãŸã‚Š":"ã¨é–“é•ãˆã‚‹ã‚¨ãƒ©ãƒ¼ã¯ã¨ã¦ã‚‚å¤šã„ã§ã™ã€‚
+int led=13;ã€€ã®ã‚ˆã†ã«ã‚¹ãƒšãƒ¼ã‚¹ã‚’å…¥ã‚Œãªãã¦ã‚‚ã‚ˆã„(ã‚¹ãƒšãƒ¼ã‚¹ã¯ç„¡è¦–ã•ã‚Œã‚‹)ãŒã€å…¥ã‚ŒãŸã»ã†ãŒè¦‹ã‚„ã™ã„ã€‚
 	void setup(){
-‰ŠúÝ’è‚Ì‚½‚ß‚É•K‚¸•K—v‚ÈˆêsB
-"{"‚ÌŒã‚Ìs‚Í’i‰º‚°‚ªs‚í‚ê‚éB
+åˆæœŸè¨­å®šã®ãŸã‚ã«å¿…ãšå¿…è¦ãªä¸€è¡Œã€‚
+"{"ã®å¾Œã®è¡Œã¯æ®µä¸‹ã’ãŒè¡Œã‚ã‚Œã‚‹ã€‚
 	pinMode(led, OUTPUT);
-•Ï”"led"(13)‚ðo—Í‚ÉB‚±‚Ì‚æ‚¤‚É‘‚­‚±‚Æ‚Åarduino‚É"led"‚ªƒsƒ“‚Ì”Ô†‚Å‚ ‚é‚ÆŽwŽ¦‚·‚éB
-‘å•¶Žš¬•¶Žš‚Í‹æ•Ê‚³‚ê‚é‚Ì‚ÅŠÔˆá‚¦‚È‚¢‚æ‚¤‚ÉB
+å¤‰æ•°"led"(13)ã‚’å‡ºåŠ›ã«ã€‚ã“ã®ã‚ˆã†ã«æ›¸ãã“ã¨ã§arduinoã«"led"ãŒãƒ”ãƒ³ã®ç•ªå·ã§ã‚ã‚‹ã¨æŒ‡ç¤ºã™ã‚‹ã€‚
+å¤§æ–‡å­—å°æ–‡å­—ã¯åŒºåˆ¥ã•ã‚Œã‚‹ã®ã§é–“é•ãˆãªã„ã‚ˆã†ã«ã€‚
 	}
-"{"‚Æ"}"‚Í•K‚¸ƒƒ“ƒZƒbƒg‚ÅŽg‚í‚ê‚é
+"{"ã¨"}"ã¯å¿…ãšãƒ¯ãƒ³ã‚»ãƒƒãƒˆã§ä½¿ã‚ã‚Œã‚‹
 
 	void loop(){
-ˆÈ‰ºŽÀs‚³‚ê‚é“à—e
+ä»¥ä¸‹å®Ÿè¡Œã•ã‚Œã‚‹å†…å®¹
 	digitalWrite(led, HIGH);
-"led"(13”Ôƒsƒ“)‚ð"HIGH"‚ÉBuno‚Ìê‡‚Í‚TVo—ÍB
+"led"(13ç•ªãƒ”ãƒ³)ã‚’"HIGH"ã«ã€‚unoã®å ´åˆã¯ï¼•Vå‡ºåŠ›ã€‚
 	delay(1000);
-delay(ms)‚Ì’PˆÊ‚Íƒ~ƒŠƒZƒJƒ“ƒhB
+delay(ms)ã®å˜ä½ã¯ãƒŸãƒªã‚»ã‚«ãƒ³ãƒ‰ã€‚
 	digitalWrite(led, LOW);
-"led"‚ð‚OV‚ÉB
+"led"ã‚’ï¼Vã«ã€‚
 	delay(1000);
 	}
 
 
-ƒXƒPƒbƒ`‚ð‘‚«I‚¦‚½‚ç¶ã‚Ìƒ`ƒFƒbƒN‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢B
-ŠÔˆá‚¢‚ª‚ ‚ê‚Î‰º‚ÉƒGƒ‰[‚ª•\Ž¦‚³‚ê‚Ü‚·B
+ã‚¹ã‚±ãƒƒãƒã‚’æ›¸ãçµ‚ãˆãŸã‚‰å·¦ä¸Šã®ãƒã‚§ãƒƒã‚¯ã‚’æŠ¼ã—ã¦ãã ã•ã„ã€‚
+é–“é•ã„ãŒã‚ã‚Œã°ä¸‹ã«ã‚¨ãƒ©ãƒ¼ãŒè¡¨ç¤ºã•ã‚Œã¾ã™ã€‚
 
-ƒRƒ“ƒpƒCƒ‹‚ªI—¹‚·‚ê‚Îƒtƒ@ƒCƒ‹‚ð•Û‘¶‚µ‚Ü‚µ‚å‚¤B
+ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ãŒçµ‚äº†ã™ã‚Œã°ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¿å­˜ã—ã¾ã—ã‚‡ã†ã€‚
 
-arduino‚Ö‚Ì“]‘—‚Å‚·B
-"ƒc[ƒ‹"  "ƒ}ƒCƒRƒ“ƒ{[ƒh" ‚ÅArduino Uno ‚ð‘I‘ð‚µ‚Ü‚·B
-"ƒc[ƒ‹"  "ƒVƒŠƒAƒ‹ƒ|[ƒg" ‚Å³‚µ‚¢COMƒ|[ƒg‚ð‘I‘ð‚µ‚Ü‚·B
-Windows‚Ìê‡‚ÍƒfƒoƒCƒXƒ}ƒl[ƒWƒƒ‚ðŠJ‚¢‚Ä"ƒ|[ƒg(COM‚ÆLPT)"‚Åarduino‚ª”FŽ¯‚³‚ê‚Ä‚¢‚éƒ|[ƒg‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢B
-ã¶‚©‚ç2”Ô–Ú‚Ì–îˆóƒAƒCƒRƒ“‚ð‰Ÿ‚µ‚Ä“]‘—‚Å‚·B
-arduinoã‚ÌLED‚ª’Z‚­“_–Å‚µ‚½ŒãAˆê•b‚²‚Æ‚É“_–Å‚·‚ê‚Î¬Œ÷‚Å‚·B
+arduinoã¸ã®è»¢é€ã§ã™ã€‚
+"ãƒ„ãƒ¼ãƒ«"  "ãƒžã‚¤ã‚³ãƒ³ãƒœãƒ¼ãƒ‰" ã§Arduino Uno ã‚’é¸æŠžã—ã¾ã™ã€‚
+"ãƒ„ãƒ¼ãƒ«"  "ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ãƒˆ" ã§æ­£ã—ã„COMãƒãƒ¼ãƒˆã‚’é¸æŠžã—ã¾ã™ã€‚
+Windowsã®å ´åˆã¯ãƒ‡ãƒã‚¤ã‚¹ãƒžãƒãƒ¼ã‚¸ãƒ£ã‚’é–‹ã„ã¦"ãƒãƒ¼ãƒˆ(COMã¨LPT)"ã§arduinoãŒèªè­˜ã•ã‚Œã¦ã„ã‚‹ãƒãƒ¼ãƒˆã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚
+ä¸Šå·¦ã‹ã‚‰2ç•ªç›®ã®çŸ¢å°ã‚¢ã‚¤ã‚³ãƒ³ã‚’æŠ¼ã—ã¦è»¢é€ã§ã™ã€‚
+arduinoä¸Šã®LEDãŒçŸ­ãç‚¹æ»…ã—ãŸå¾Œã€ä¸€ç§’ã”ã¨ã«ç‚¹æ»…ã™ã‚Œã°æˆåŠŸã§ã™ã€‚
 
 
-“ñ‚Â‚Ìdelay()‚Ì”‚ð‚¢‚ë‚¢‚ë•Ï‚¦‚Ä‚Ý‚Ä‚­‚¾‚³‚¢B
-‚½‚Æ‚¦‚Î10‚Æ10‚É‚·‚é‚ÆH
-‚³‚ç‚É10‚Æ5‚É‚·‚é‚ÆH
-	
-int led = ‚Ì”‚ð‚P‚©‚ç12‚Ì”CˆÓ‚Ì”‚É•Ï‚¦AƒuƒŒƒbƒhƒ{[ƒh‚ÉLED‚Æ’ïR‚ð‚Â‚È‚¢‚ÅAŒõ‚ç‚¹‚Ä‚Ý‚Ü‚µ‚å‚¤B
+äºŒã¤ã®delay()ã®æ•°ã‚’ã„ã‚ã„ã‚å¤‰ãˆã¦ã¿ã¦ãã ã•ã„ã€‚
+ãŸã¨ãˆã°10ã¨10ã«ã™ã‚‹ã¨ï¼Ÿ
+ã•ã‚‰ã«10ã¨5ã«ã™ã‚‹ã¨ï¼Ÿ
 
-@  void loop(){
+int led = ã®æ•°ã‚’ï¼‘ã‹ã‚‰12ã®ä»»æ„ã®æ•°ã«å¤‰ãˆã€ãƒ–ãƒ¬ãƒƒãƒ‰ãƒœãƒ¼ãƒ‰ã«LEDã¨æŠµæŠ—ã‚’ã¤ãªã„ã§ã€å…‰ã‚‰ã›ã¦ã¿ã¾ã—ã‚‡ã†ã€‚
+
+ã€€  void loop(){
 	pinMode(13, HIGH);
     }
     void setup(){
@@ -79,5 +54,4 @@ int led = ‚Ì”‚ð‚P‚©‚ç12‚Ì”CˆÓ‚Ì”‚É•Ï‚¦AƒuƒŒƒbƒhƒ{[ƒh‚ÉLED‚Æ’ïR‚ð‚Â‚È‚¢‚ÅAŒ
 	delay(1000);
     }
 
-ã‚Ì‚æ‚¤‚É‘‚¢‚Ä‚à“®‚«‚Í“¯‚¶‚Å‚·‚ªA‚±‚Ì‘‚«•û‚Å‚Íƒsƒ“‚ð•Ï‚¦‚é‚Æ‚«ŽO‰ÓŠ‘‚«Š·‚¦‚È‚¢‚Æ‚¢‚¯‚Ü‚¹‚ñ‚ËB
-
+ä¸Šã®ã‚ˆã†ã«æ›¸ã„ã¦ã‚‚å‹•ãã¯åŒã˜ã§ã™ãŒã€ã“ã®æ›¸ãæ–¹ã§ã¯ãƒ”ãƒ³ã‚’å¤‰ãˆã‚‹ã¨ãä¸‰ç®‡æ‰€æ›¸ãæ›ãˆãªã„ã¨ã„ã‘ã¾ã›ã‚“ã­ã€‚
