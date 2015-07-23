@@ -1,62 +1,62 @@
 /*
  DigitalReadSerial
-$B%T%s#2$N%G%8%?%k$JF~NO$rFI$_!"7k2L$r%7%j%"%k%b%K%?$K=PNO$9$k!#(B
+ピン２のデジタルな入力を読み、結果をシリアルモニタに出力する。
 
-$B$3$N%5%s%W%k%3!<%I$O%Q%V%j%C%/%I%a%$%s$GDs6!$5$l$F$$$^$9!#(B
+このサンプルコードはパブリックドメインで提供されています。
 */
 
-//  $B%G%8%?%k%T%s#2$K%W%C%7%e%\%?%s$r@\B3$9$k!#$3$l$KL>A0$r$D$1$k!#(B
+//  デジタルピン２にプッシュボタンを接続する。これに名前をつける。
 int pushButton = 2;
 
-//  "setup" $B$O%j%;%C%H$r2!$7$?$H$-0lEY$@$19T$o$l$k!#(B
+//  "setup" はリセットを押したとき一度だけ行われる。
 void setup(){
-	//  $B%7%j%"%kDL?.$r(B9600bps(bits per second)$B$G@_Dj!#(B
+	//  シリアル通信を9600bps(bits per second)で設定。
 	Serial.begin(9600);
-	//  $B%W%C%7%e%\%?%s%T%s$rF~NO$K!#(B
+	//  プッシュボタンピンを入力に。
 	pinMode(pushButton, INPUT);
 }
-"loop" $B$O7+$jJV$7B3$1$i$l$k!#(B
+"loop" は繰り返し続けられる。
 void loop(){
-	// $BF~NO%T%s$rFI$`!#(B
+	// 入力ピンを読む。
 	int buttonState = digitalRead(pushButton);
-	// $B%\%?%s$N>uBV$r=PNO$9$k!#(B
+	// ボタンの状態を出力する。
 	Serial.println(buttonState);
-	delay(1);	// $B0BDj$7$?FI$_<h$j$N$?$a$NCY1d!#(B
+	delay(1);	// 安定した読み取りのための遅延。
 
 
-$B2r@b(B
+解説
 
-$B#5(BV$B$H#2HV%T%s$r%W%C%7%e%\%?%s$G$D$J$0!#(B
-$B#2HV%T%s$H(BGND$B$r(B10k$B%*!<%`$NDq93$G$D$J$0!J%W%k%@%&%s!K(B
+５Vと２番ピンをプッシュボタンでつなぐ。
+２番ピンとGNDを10kオームの抵抗でつなぐ（プルダウン）
 
 	int pushButton = 2;
 
-$BJQ?t(B "pushButton" $B$r:n$C$F!"$=$3$K(B2$B$rF~$l$k!#(B
+変数 "pushButton" を作って、そこに2を入れる。
 
 	void setup(){
 		Serial.begin(9600);
 
-"Serial.begin(speed)"  PC$B$H%7%j%"%kDL?.$r9T$&!#(B"speed" $B$O(B9600$B$,$h$/;H$o$l$k!#(B
+"Serial.begin(speed)"  PCとシリアル通信を行う。"speed" は9600がよく使われる。
 
 		pinMode(pushButton, INPUT);
 	}
 
-"pushButton" $B!J(B2$BHV%T%s!K$rF~NO$K@_Dj!#(B
+"pushButton" （2番ピン）を入力に設定。
 
 	void loop(){
 		int buttonState = digitalRead(pushButton);
 
-$BJQ?t(B "buttonState" $B$r:n$j!"(B"pushButton" $B!J(B2$BHV%T%s!K$N>uBV$rF~$l$k!#(B"HIGH" $B$O(B1, "LOW" $B$O(B0$B!#(B
+変数 "buttonState" を作り、"pushButton" （2番ピン）の状態を入れる。"HIGH" は1, "LOW" は0。
 
 		Serial.println(buttonState);
 
-"buttonState" $B$NCM$r(BPC$B$KAw$j!"2~9T$9$k!#(B
+"buttonState" の値をPCに送り、改行する。
 
 		delay(1);
 	}
 
-$B%D!<%k$h$j!"%7%j%"%k%b%K%?$rA*Br$7$F$/$@$5$$!#(B
-$B%\%?%s$r2!$7$F$$$J$1$l$P(B "0" $B$,!"2!$;$P(B "1" $B$,N.$l$^$9!#(B
-aruduino$B$N(B2$BHV%T%s$N>uBV$,!"%7%j%"%k%b%K%?$GFI$_<h$l$?$o$1$G$9!#(B
+ツールより、シリアルモニタを選択してください。
+ボタンを押していなければ "0" が、押せば "1" が流れます。
+aruduinoの2番ピンの状態が、シリアルモニタで読み取れたわけです。
 
 		

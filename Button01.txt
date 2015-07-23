@@ -1,14 +1,14 @@
 /*
   Button
   
-$B%T%s#2$K$D$J$$$@%W%C%7%e%\%?%s$r2!$9$3$H$G%T%s(B13$B$K$D$J$$$@(BLED$B$rE@Et!">CEt$5$;$k(B
+ピン２につないだプッシュボタンを押すことでピン13につないだLEDを点灯、消灯させる
 
-$B2sO)!'(B
-* LED$B$r%T%s(B13$B$H(BGND$B$K@\B3(B
-* $B%W%C%7%e%\%?%s$r!\#5(BV$B$+$i%T%s(B2$B$K@\B3!#(B
-* 10k$B$NDq93$r%T%s#2$+$i(BGND$B$K@\B3!#(B
+回路：
+* LEDをピン13とGNDに接続
+* プッシュボタンを＋５Vからピン2に接続。
+* 10kの抵抗をピン２からGNDに接続。
 
-* $BCm0U!'$[$H$s$I$N(Barduino$B$G$O%T%s(B13$B$K(BLED$B$,$9$G$K$D$J$,$l$F$$$k!#(B
+* 注意：ほとんどのarduinoではピン13にLEDがすでにつながれている。
 
 created 2005
 by DojoDave <http://www.0j0.org>
@@ -21,91 +21,91 @@ http://www.arduino.cc/en/Tutorial/Button
 */
 
 
-//  $BDj?t$OJQ2=$7$J$$!#$3$3$G;H$o$l$k(B
-//  $B%T%sHV9f$r@_Dj!#(B
-const int buttonPin = 2;  //$B!!%W%C%7%e%\%?%s$N%T%s$NHV9f(B
-const int ledPin = 13;    //  LED$B$N%T%s$NHV9f(B
+//  定数は変化しない。ここで使われる
+//  ピン番号を設定。
+const int buttonPin = 2;  //　プッシュボタンのピンの番号
+const int ledPin = 13;    //  LEDのピンの番号
 
-//  $BJQ?t$OJQ2=$9$k(B
-int buttonState = 0;      // $B%W%C%7%e%\%?%s$N>uBV$rFI$`(B
+//  変数は変化する
+int buttonState = 0;      // プッシュボタンの状態を読む
 
 void setup(){
-	// LED$B$r=PNO$K@_Dj(B
+	// LEDを出力に設定
 	pinMode(ledPin,OUTPUT);
-	//  $B%W%C%7%e%\%?%s$rF~NO$K@_Dj(B
+	//  プッシュボタンを入力に設定
 	pinMode(buttonPin,INPUT);
 }
 
 void loop(){
-	//$B!!%W%C%7%e%\%?%s$NCM$N>uBV$rFI$`!#(B
+	//　プッシュボタンの値の状態を読む。
 	buttonState = digitalRead(buttonPin);
 
-	//  $B%W%C%7%e%\%?%s$,2!$5$l$F$$$k$+D4$Y$k!#(B
-	//  $B2!$5$l$F$$$?$i!"(BbuttonState $B$O(B HIGH
+	//  プッシュボタンが押されているか調べる。
+	//  押されていたら、buttonState は HIGH
 	if (buttonState == HIGH){
-		//  LED$B$rE@Et!#(B
+		//  LEDを点灯。
 		digitalWrite(ledPin, HIGH);
 	}
 	else{
-		// LED$B$r>CEt!#(B
+		// LEDを消灯。
 		digitalWrite(ledPin, LOW);
 	}
 }
 
 
-$B2r@b(B
+解説
 
 	const int buttonPin = 2;
 	const int ledPin = 13;
 
-"const int" $B$GDj?t$r@_Dj!#(B
-"#define buttonPin 2" $B$H=q$+$l$F$$$k$3$H$b$"$k!#!J$3$N$H$-$O(B "=" $BL5$7!K(B
+"const int" で定数を設定。
+"#define buttonPin 2" と書かれていることもある。（このときは "=" 無し）
 
 	int buttonState = 0;
 
-$BJQ?t(B "buttonState" $B$r:n$k!#!J$H$j$"$($:CM$O(B0)
+変数 "buttonState" を作る。（とりあえず値は0)
 
 	void setup(){
 		pinMode(ledPin, OUTPUT);
 
-"ledPin" $B$NCM(B(13)$B$N%T%s$r=PNO$K$9$k!#(B("ledPin" $B$,(B14$B$H$+(B1.5$B$H$+$G$"$l$P!"%3%s%Q%$%k$ODL$C$F$bF0$+$J$$!K(B
+"ledPin" の値(13)のピンを出力にする。("ledPin" が14とか1.5とかであれば、コンパイルは通っても動かない）
 
 		pinMode(buttonPin, INPUT);
 
-"buttonPin" $B$NCM(B(2)$B$N%T%s$rF~NO$K$9$k!#(B
+"buttonPin" の値(2)のピンを入力にする。
 
 	}
 
 	void loop(){
 		buttonState = digitalRead(buttonPin);
 
-$BJQ?t(B "buttonState" $B$K(B buttonPin" ($B%T%s#2!K$N>uBV$rFI$s$@CM$rF~$l$k!#(B
-* "digitalRead(pin)"  "pin" $BFI$_$?$$%T%sHV9f$N>uBV$rFI$_!"(B"HIGH" $B$+!!(B"LOW" $B$r$+$($9!#(B
+変数 "buttonState" に buttonPin" (ピン２）の状態を読んだ値を入れる。
+* "digitalRead(pin)"  "pin" 読みたいピン番号の状態を読み、"HIGH" か　"LOW" をかえす。
 
 		if (buttonPin == HIGH){
 
-"buttonPin" $B$NCM$,(B "HIGH" $B$G$"$l$P!!(B"{"___"}"$B!!$N$3$H$r$9$k(B
-* "x == y" $B#x$H#y$OEy$7$$!#(B"x = y" $B$O(B x $B$K(B y $B$NCM$rF~$l$k!#(B
+"buttonPin" の値が "HIGH" であれば　"{"___"}"　のことをする
+* "x == y" ｘとｙは等しい。"x = y" は x に y の値を入れる。
 
 			digitalWrite(ledPin, HIGH);
 	}
 
-"ledPin" $B$NCM(B(13)$B$N%T%s$r(B "HIGH" $B$K$9$k!#(B
+"ledPin" の値(13)のピンを "HIGH" にする。
 
 		els {
 
-"buttonPin == HIGH" $B$G$J$1$l$P(B
+"buttonPin == HIGH" でなければ
 
 			digitalWrite(ledPin, LOW);
 		}
 
-"ledPin" $B$NCM(B(13)$B$N%T%s$r(B "LOW" $B$K$9$k!#(B
+"ledPin" の値(13)のピンを "LOW" にする。
 
 	}
 
-$B:G8e$N(B "}" $B$rK:$l$J$$$h$&$K!#(B
-"}" $B$r%/%j%C%/$9$k$HBP1~$9$k(B "{" $B$r;M3Q$G$/$/$C$F;X<($7$F$/$l$^$9!#(B"{" $B$H(B"}" $B$,I,$:BP$K$J$C$F$$$k$3$H$r0U<1$7$F$/$@$5$$!#(B
+最後の "}" を忘れないように。
+"}" をクリックすると対応する "{" を四角でくくって指示してくれます。"{" と"}" が必ず対になっていることを意識してください。
 
-$B%T%s#2$+$i(BGND$B$K$D$J$0(B10k$B%*!<%`$NDq93$O!"%W%C%7%e%\%?%s$,2!$5$l$F$J$$$H$-%T%s#2$,(B0V$B$G$"$k$3$H$r3NDj$5$;$k$?$a$N$b$N$G!"%W%k%@%&%sDq93$H8F$P$l$F$$$^$9!#(B
+ピン２からGNDにつなぐ10kオームの抵抗は、プッシュボタンが押されてないときピン２が0Vであることを確定させるためのもので、プルダウン抵抗と呼ばれています。
 
 

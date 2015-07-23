@@ -1,97 +1,97 @@
 /*
 	Blink
-	LED$B$r0lIC4VE@Et!">CEt$r7+$jJV$9!#(B
-	$B$3$N%5%s%W%k%3!<%I$O%Q%V%j%C%/%I%a%$%s$G$9!#(B
+	LEDを一秒間点灯、消灯を繰り返す。
+	このサンプルコードはパブリックドメインです。
 */
 
-// 13$BHV%T%s$OBgDq$N(Barduino$B%\!<%I$G(BLED$B$K$D$J$,$C$F$$$k!#(B
-// $B$3$l$KL>A0$r$D$1$k!#(B
+// 13番ピンは大抵のarduinoボードでLEDにつながっている。
+// これに名前をつける。
 int led = 13;
 
-// "setup"$B%k!<%F%#%s$O%\!<%I$NEE8;$rF~$l$?$H$-$d%j%;%C%H$r2!$7$?;~$K0lEY$@$19T$o$l$k!#(B
+// "setup"ルーティンはボードの電源を入れたときやリセットを押した時に一度だけ行われる。
 void setup(){
-	//$B!!$=$N%G%8%?%k%T%s$r=PNO$K@_Dj$9$k!#(B
+	//　そのデジタルピンを出力に設定する。
 	pinMode(led,OUTPUT);
 }
 
-// "loop"$B%k!<%F%#%s$O7+$jJV$79T$o$l$k!#(B
+// "loop"ルーティンは繰り返し行われる。
 void loop(){
-	digitalWrite(led, HIGH);	//$B!!(BLED$B$rE@Et(B
-	delay(1000);			//$B!!0lICBT$D(B
-	digitalWrite(led, LOW);		//$B!!EE05$rMn$H$7$F(BLED$B$r>CEt(B
-	delay(1000);			//$B!!0lICBT$D(B
+	digitalWrite(led, HIGH);	//　LEDを点灯
+	delay(1000);			//　一秒待つ
+	digitalWrite(led, LOW);		//　電圧を落としてLEDを消灯
+	delay(1000);			//　一秒待つ
 }
 
 
-$B2r@b(B
+解説
 
-13$BHV%T%s$r(BLED$B$N%"%N!<%I!J%W%i%9B&!(B-$ND9$$$[$&!K$H$D$J$0!#(B
-LED$B$N%+%=!<%I!J%^%$%J%9B&!K$H(BGND$B$r(B330$B%*!<%`$NDq93$r2p$7$F$D$J$0!#(B
-LED$B$KD>@\EE8;$r$D$J$0$HEEN.$,N.$l$9$.$F(BLED$B$,$3$o$l$k!#E,@Z$JEEN.$,!J(BLED$B$K$h$k!($?$H$($P(B10mA)$BN.$l$k$h$&EEN.@)8BDq93$rD>Ns$K$D$J$0!#!J%"%N!<%IB&$K$D$J$$$G$b$h$$!K(B
+13番ピンをLEDのアノード（プラス側；足の長いほう）とつなぐ。
+LEDのカソード（マイナス側）とGNDを330オームの抵抗を介してつなぐ。
+LEDに直接電源をつなぐと電流が流れすぎてLEDがこわれる。適切な電流が（LEDによる；たとえば10mA)流れるよう電流制限抵抗を直列につなぐ。（アノード側につないでもよい）
 
-"//"$B$G;O$^$k0l9T$^$?$O(B "/*" "*/" $B$G0O$^$l$?ItJ,$O%3%a%s%H9T!#(Barduino$B$K$OL5;k$5$l$k!#(B
-$B!V??$N%O%C%+!<$O%3%a%s%H$r=q$/!W$=$&$G$9!#(B
+"//"で始まる一行または "/*" "*/" で囲まれた部分はコメント行。arduinoには無視される。
+「真のハッカーはコメントを書く」そうです。
 
 	int led = 13;
 
-"int" $B$O$=$N8e$KB3$/$b$N$,@0?t7?$G$"$k$3$H$r<($9!#(B
-"led" $B$H$$$&L>$N@0?t7?$NJQ?t$r:n$j!"$=$l$K(B13$B$rBeF~$9$k!#(B
-";" $B$O9T$N=*$o$j$r<($9!#K:$l$:$KF~$l$k$3$H!*!*F~$lK:$l$?$j(B":"$B$H4V0c$($k%(%i!<$O$H$F$bB?$$$G$9!#(B
-int led=13;$B!!$N$h$&$K%9%Z!<%9$rF~$l$J$/$F$b$h$$(B($B%9%Z!<%9$OL5;k$5$l$k(B)$B$,!"F~$l$?$[$&$,8+$d$9$$!#(B
+"int" はその後に続くものが整数型であることを示す。
+"led" という名の整数型の変数を作り、それに13を代入する。
+";" は行の終わりを示す。忘れずに入れること！！入れ忘れたり":"と間違えるエラーはとても多いです。
+int led=13;　のようにスペースを入れなくてもよい(スペースは無視される)が、入れたほうが見やすい。
 
 	void setup(){
 
-$B=i4|@_Dj$N$?$a$KI,$:I,MW$J0l9T!#(B
-"{"$B$N8e$N9T$OCJ2<$2$,9T$o$l$k!#(B
+初期設定のために必ず必要な一行。
+"{"の後の行は段下げが行われる。
 
 	pinMode(led, OUTPUT);
 
-"pinMode(pin,mode)" $B;XDj$7$?(B "pin" $B$rF~NO$+=PNO$K@_Dj$9$k!#(B
-$BJQ?t(B "led" (13)$B$r=PNO$K!#$3$N$h$&$K=q$/$3$H$G(Barduino$B$K(B "led" $B$,%T%s$NHV9f$G$"$k$H;X<($9$k!#(B
-$BBgJ8;z>.J8;z$O6hJL$5$l$k$N$G4V0c$($J$$$h$&$K!#(B
+"pinMode(pin,mode)" 指定した "pin" を入力か出力に設定する。
+変数 "led" (13)を出力に。このように書くことでarduinoに "led" がピンの番号であると指示する。
+大文字小文字は区別されるので間違えないように。
 	}
-"{" $B$H(B "}" $B$OI,$:%o%s%;%C%H$G;H$o$l$k(B
+"{" と "}" は必ずワンセットで使われる
 
 	void loop(){
 
-$B0J2<<B9T$5$l$kFbMF(B
+以下実行される内容
 
 	digitalWrite(led, HIGH);
 
-"digitalWrite(pin,value)"  "HIGH" $B$^$?$O(B "LOW" $B$r;XDj$7$?(B "pin" $B$K=PNO$9$k!#(BUNO$B$N>l9g!"(B"HIGH" $B$O(B +5V, "LOW" $B$O(B0V$B!#(B
-"led" (13$BHV%T%s(B)$B$r(B5V$B$K!#(B
+"digitalWrite(pin,value)"  "HIGH" または "LOW" を指定した "pin" に出力する。UNOの場合、"HIGH" は +5V, "LOW" は0V。
+"led" (13番ピン)を5Vに。
 
 	delay(1000);
 
-"delay(ms)" $B$O;XDj$7$?;~4V%W%m%0%i%`$r;_$a$k!#C10L$O%_%j%;%+%s%I!#(B
+"delay(ms)" は指定した時間プログラムを止める。単位はミリセカンド。
 
 	digitalWrite(led, LOW);
 
-"led" $B$r(B0V$B$K!#(B
+"led" を0Vに。
 	delay(1000);
 	}
 
 
-$B%9%1%C%A$r=q$-=*$($?$i:8>e$N%A%'%C%/$r2!$7$F$/$@$5$$!#(B
-$B4V0c$$$,$"$l$P2<$K%(%i!<$,I=<($5$l$^$9!#(B
+スケッチを書き終えたら左上のチェックを押してください。
+間違いがあれば下にエラーが表示されます。
 
-$B%3%s%Q%$%k$,=*N;$9$l$P%U%!%$%k$rJ]B8$7$^$7$g$&!#(B
+コンパイルが終了すればファイルを保存しましょう。
 
-arduino$B$X$NE>Aw$G$9!#(B
-"$B%D!<%k(B"  "$B%^%$%3%s%\!<%I(B" $B$G(BArduino Uno $B$rA*Br$7$^$9!#(B
-"$B%D!<%k(B"  "$B%7%j%"%k%]!<%H(B" $B$G@5$7$$(BCOM$B%]!<%H$rA*Br$7$^$9!#(B
-Windows$B$N>l9g$O%G%P%$%9%^%M!<%8%c$r3+$$$F(B "$B%]!<%H(B(COM$B$H(BLPT)" $B$G(Barduino$B$,G'<1$5$l$F$$$k%]!<%H$r3NG'$7$F$/$@$5$$!#(B
-$B>e:8$+$i(B2$BHVL\$NLp0u%"%$%3%s$r2!$7$FE>Aw$G$9!#(B
-arduino$B>e$N(BLED$B$,C;$/E@LG$7$?8e!"0lIC$4$H$KE@LG$9$l$P@.8y$G$9!#(B
+arduinoへの転送です。
+"ツール"  "マイコンボード" でArduino Uno を選択します。
+"ツール"  "シリアルポート" で正しいCOMポートを選択します。
+Windowsの場合はデバイスマネージャを開いて "ポート(COMとLPT)" でarduinoが認識されているポートを確認してください。
+上左から2番目の矢印アイコンを押して転送です。
+arduino上のLEDが短く点滅した後、一秒ごとに点滅すれば成功です。
 
 
-$BFs$D$N(Bdelay()$B$N?t$r$$$m$$$mJQ$($F$_$F$/$@$5$$!#(B
-$B$?$H$($P(B10$B$H(B10$B$K$9$k$H!)(B
-$B$5$i$K(B10$B$H(B5$B$K$9$k$H!)(B
+二つのdelay()の数をいろいろ変えてみてください。
+たとえば10と10にすると？
+さらに10と5にすると？
 	
-"int led =" $B$N?t$r(B2$B$+$i(B12$B$NG$0U$N?t$KJQ$(!"%V%l%C%I%\!<%I$K(BLED$B$HDq93$r$D$J$$$G!"8w$i$;$F$_$^$7$g$&!#(B
+"int led =" の数を2から12の任意の数に変え、ブレッドボードにLEDと抵抗をつないで、光らせてみましょう。
 
-$B!!(B  void loop(){
+　  void loop(){
 	pinMode(13, HIGH);
     }
     void setup(){
@@ -101,5 +101,5 @@ arduino$B>e$N(BLED$B$,C;$/E@LG$7$?8e!"0lIC$4$H$KE@LG$9$l$P@.8y$G$9!#(B
 	delay(1000);
     }
 
-$B>e$N$h$&$K=q$$$F$bF0$-$OF1$8$G$9$,!"$3$N=q$-J}$G$O%T%s$rJQ$($k$H$-;02U=j=q$-49$($J$$$H$$$1$^$;$s$M!#(B
+上のように書いても動きは同じですが、この書き方ではピンを変えるとき三箇所書き換えないといけませんね。
 
