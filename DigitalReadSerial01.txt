@@ -1,0 +1,62 @@
+/*
+ DigitalReadSerial
+ピン２のデジタルな入力を読み、結果をシリアルモニタに出力する。
+
+このサンプルコードはパブリックドメインで提供されています。
+*/
+
+//  デジタルピン２にプッシュボタンを接続する。これに名前をつける。
+int pushButton = 2;
+
+//  "setup" はリセットを押したとき一度だけ行われる。
+void setup(){
+	//  シリアル通信を9600bps(bits per second)で設定。
+	Serial.begin(9600);
+	//  プッシュボタンピンを入力に。
+	pinMode(pushButton, INPUT);
+}
+"loop" は繰り返し続けられる。
+void loop(){
+	// 入力ピンを読む。
+	int buttonState = digitalRead(pushButton);
+	// ボタンの状態を出力する。
+	Serial.println(buttonState);
+	delay(1);	// 安定した読み取りのための遅延。
+
+
+解説
+
+５Vと２番ピンをプッシュボタンでつなぐ。
+２番ピンとGNDを10kオームの抵抗でつなぐ（プルダウン）
+
+	int pushButton = 2;
+
+変数 "pushButton" を作って、そこに2を入れる。
+
+	void setup(){
+		Serial.begin(9600);
+
+"Serial.begin(speed)"  PCとシリアル通信を行う。"speed" は9600がよく使われる。
+
+		pinMode(pushButton, INPUT);
+	}
+
+"pushButton" （2番ピン）を入力に設定。
+
+	void loop(){
+		int buttonState = digitalRead(pushButton);
+
+変数 "buttonState" を作り、"pushButton" （2番ピン）の状態を入れる。"HIGH" は1, "LOW" は0。
+
+		Serial.println(buttonState);
+
+"buttonState" の値をPCに送り、改行する。
+
+		delay(1);
+	}
+
+ツールより、シリアルモニタを選択してください。
+ボタンを押していなければ "0" が、押せば "1" が流れます。
+aruduinoの2番ピンの状態が、シリアルモニタで読み取れたわけです。
+
+		
