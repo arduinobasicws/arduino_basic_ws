@@ -1,0 +1,111 @@
+/*
+  Button
+  
+ピン２につないだプッシュボタンを押すことでピン13につないだLEDを点灯、消灯させる
+
+回路：
+* LEDをピン13とGNDに接続
+* プッシュボタンを＋５Vからピン2に接続。
+* 10kの抵抗をピン２からGNDに接続。
+
+* 注意：ほとんどのarduinoではピン13にLEDがすでにつながれている。
+
+created 2005
+by DojoDave <http://www.0j0.org>
+modified 30 Aug2011
+by Tom Igoe
+
+This example code is in the public domain.
+
+http://www.arduino.cc/en/Tutorial/Button
+*/
+
+
+//  定数は変化しない。ここで使われる
+//  ピン番号を設定。
+const int buttonPin = 2;  //　プッシュボタンのピンの番号
+const int ledPin = 13;    //  LEDのピンの番号
+
+//  変数は変化する
+int buttonState = 0;      // プッシュボタンの状態を読む
+
+void setup(){
+	// LEDを出力に設定
+	pinMode(ledPin,OUTPUT);
+	//  プッシュボタンを入力に設定
+	pinMode(buttonPin,INPUT);
+}
+
+void loop(){
+	//　プッシュボタンの値の状態を読む。
+	buttonState = digitalRead(buttonPin);
+
+	//  プッシュボタンが押されているか調べる。
+	//  押されていたら、buttonState は HIGH
+	if (buttonState == HIGH){
+		//  LEDを点灯。
+		digitalWrite(ledPin, HIGH);
+	}
+	else{
+		// LEDを消灯。
+		digitalWrite(ledPin, LOW);
+	}
+}
+
+
+解説
+
+	const int buttonPin = 2;
+	const int ledPin = 13;
+
+"const int" で定数を設定。
+"#define buttonPin 2" と書かれていることもある。（このときは "=" 無し）
+
+	int buttonState = 0;
+
+変数 "buttonState" を作る。（とりあえず値は0)
+
+	void setup(){
+		pinMode(ledPin, OUTPUT);
+
+"ledPin" の値(13)のピンを出力にする。("ledPin" が14とか1.5とかであれば、コンパイルは通っても動かない）
+
+		pinMode(buttonPin, INPUT);
+
+"buttonPin" の値(2)のピンを入力にする。
+
+	}
+
+	void loop(){
+		buttonState = digitalRead(buttonPin);
+
+変数 "buttonState" に buttonPin" (ピン２）の状態を読んだ値を入れる。
+* "digitalRead(pin)"  "pin" 読みたいピン番号の状態を読み、"HIGH" か　"LOW" をかえす。
+
+		if (buttonPin == HIGH){
+
+"buttonPin" の値が "HIGH" であれば　"{"___"}"　のことをする
+* "x == y" ｘとｙは等しい。"x = y" は x に y の値を入れる。
+
+			digitalWrite(ledPin, HIGH);
+	}
+
+"ledPin" の値(13)のピンを "HIGH" にする。
+
+		els {
+
+"buttonPin == HIGH" でなければ
+
+			digitalWrite(ledPin, LOW);
+		}
+
+"ledPin" の値(13)のピンを "LOW" にする。
+
+	}
+
+最後の "}" を忘れないように。
+"}" をクリックすると対応する "{" を四角でくくって指示してくれます。"{" と"}" が必ず対になっていることを意識してください。
+
+ピン２からGNDにつなぐ10kオームの抵抗は、プッシュボタンが押されてないときピン２が0Vであることを確定させるためのもので、プルダウン抵抗と呼ばれています。
+
+
