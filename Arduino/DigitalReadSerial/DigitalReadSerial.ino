@@ -1,8 +1,8 @@
 /*
-  DigitalReadSerial
-  デジタルピン２番の入力を読み取り、シリアルモニタに結果を表示します。
+ DigitalReadSerial
+ デジタルピン２番の入力を読み取り、シリアルモニタに結果を表示します。
 
-  このサンプルコードはパブリックドメインです。
+ このサンプルコードはパブリックドメインです。
  */
 
 // デジタルピン２番にはプッシュボタンを接続する。これに名前をつける:
@@ -16,7 +16,7 @@ void setup() {
   pinMode(pushButton, INPUT);
 }
 
-//loop関数は繰り返し実行され続ける:
+// loop関数は繰り返し実行され続ける:
 void loop() {
   // 入力ピンの状態を読む:
   int buttonState = digitalRead(pushButton);
