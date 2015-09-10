@@ -4,6 +4,10 @@
 いくつかの基本的なサンプル(プログラムと電子回路)を作成して動作させ、
 Arduinoを使った電子工作の入り口として、とにかく慣れてもらうことを目標とします。
 
+このWSでは以下のページのサンプル回路やリファレンスを使用します。
+- サンプル回路：http://arduino.cc/
+- 日本語リファレンス：http://www.musashinodenpa.com/arduino/ref/
+
 ## WSの流れ
 1. Blink LEDを点滅させてみる。
 2. Button スイッチを使ってみる。
@@ -29,7 +33,7 @@ Arduinoを使った電子工作の入り口として、とにかく慣れても�
 マイコンボードには**Arduino**またはその互換機を使用しています。
 
 ## スケッチ
-今回使用しているArduinoのプログラム（スケッチ）はこちらから入手できます。
+今回使用しているArduinoの日本語訳プログラム（スケッチ）はこちらから入手できます。
 github（https://github.com/arduinobasicws/arduino_basic_ws）
 
 1. [Blink](https://github.com/arduinobasicws/arduino_basic_ws/blob/master/Arduino/Blink/Blink.ino)
