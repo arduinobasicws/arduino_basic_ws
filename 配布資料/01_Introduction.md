@@ -26,6 +26,8 @@ Arduinoを使った電子工作の入り口として、とにかく慣れても�
 - 可変抵抗（スライダー形式）x 1
 - みの虫クリップ x 3
 - CDSセンサー x 1
+ 
+![part_image](https://raw.githubusercontent.com/arduinobasicws/arduino_basic_ws/master/事前準備/parts_image.png "Parts Images")
 
 ※Arduino端末は各自用意していただく必要があります。
 
