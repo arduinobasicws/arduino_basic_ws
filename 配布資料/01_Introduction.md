@@ -26,7 +26,7 @@ Arduinoを使った電子工作の入り口として、とにかく慣れても�
 - 可変抵抗（スライダー形式）x 1
 - みの虫クリップ x 3
 - CDSセンサー x 1
- 
+
 ![part_image](https://raw.githubusercontent.com/arduinobasicws/arduino_basic_ws/master/事前準備/parts_image.png "Parts Images")
 
 ※Arduino端末は各自用意していただく必要があります。
@@ -43,6 +43,10 @@ github（https://github.com/arduinobasicws/arduino_basic_ws）
 3. [DesitalReadSerial](https://github.com/arduinobasicws/arduino_basic_ws/blob/master/Arduino/DigitalReadSerial/DigitalReadSerial.ino)
 4. [AnalogReadSerial](https://github.com/arduinobasicws/arduino_basic_ws/blob/master/Arduino/AnalogReadSerial/AnalogReadSerial.ino)
 5. [Fading](https://github.com/arduinobasicws/arduino_basic_ws/blob/master/Arduino/Fading/Fading.ino)
- 
+
+## 使用パーツの解説
+スライダー型可変抵抗の仕組み
+![slider_image](https://raw.githubusercontent.com/arduinobasicws/arduino_basic_ws/master/事前準備/slider_image.png "Slider Images")
+
 ## 作業上の注意
 - 小さなパーツを使うので手を切るなど怪我しないよう注意してください。
