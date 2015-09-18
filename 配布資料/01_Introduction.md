@@ -5,7 +5,8 @@
 Arduinoを使った電子工作の入り口として、とにかく慣れてもらうことを目標とします。
 
 このWSでは以下のページのサンプル回路やリファレンスを使用します。
-- サンプル回路：http://arduino.cc/
+- Arduino.cc ：http://arduino.cc/
+- サンプル回路：https://www.arduino.cc/en/Tutorial/BuiltInExamples
 - 日本語リファレンス：http://www.musashinodenpa.com/arduino/ref/
 
 ## WSの流れ
