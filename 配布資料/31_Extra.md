@@ -9,7 +9,7 @@
 
 ## スケッチ
 今回使用しているArduinoの日本語訳プログラム（スケッチ）はこちらから入手できます。
-github（https://github.com/arduinobasicws/arduino_basic_ws）
+github（https://github.com/arduinobasicws/arduino_basic_ws)
 
 1. [BlinkFullColorLED](https://github.com/arduinobasicws/arduino_basic_ws/blob/master/Arduino/BlinkFullColorLED/BlinkFullColorLED.ino)
 
