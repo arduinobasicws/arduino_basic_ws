@@ -37,7 +37,7 @@ Arduinoを使った電子工作の入り口として、とにかく慣れても�
 
 ## スケッチ
 今回使用しているArduinoの日本語訳プログラム（スケッチ）はこちらから入手できます。
-github（https://github.com/arduinobasicws/arduino_basic_ws）
+github（https://github.com/arduinobasicws/arduino_basic_ws)
 
 1. [Blink](https://github.com/arduinobasicws/arduino_basic_ws/blob/master/Arduino/Blink/Blink.ino)
 2. [Button](https://github.com/arduinobasicws/arduino_basic_ws/blob/master/Arduino/Button/Button.ino)
